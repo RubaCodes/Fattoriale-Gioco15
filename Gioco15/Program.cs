@@ -1,4 +1,4 @@
-﻿int[] campoDiGioco = {  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 };
+﻿int[] campoDiGioco = {  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15 };
 int[] winningArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 };
 void printCampo(int[] array) {
     int count = 0;
@@ -37,15 +37,17 @@ void CheckMove(int[] array ,int numero) {
         campoDiGioco[position] = 0;
     }
     else {
-         Console.Write("no");
+         Console.WriteLine("non e' possibile scambiare");
     }
 }
 
 
-
-    //Console.WriteLine(checkWinningArray(campoDiGioco));
+// Logica funzionante , manca il loop di gioco
+//Console.WriteLine(checkWinningArray(campoDiGioco));
 
 CheckMove(campoDiGioco, 15);
 printCampo(campoDiGioco);
 CheckMove(campoDiGioco, 11);
+printCampo(campoDiGioco);
+CheckMove(campoDiGioco, 2);
 printCampo(campoDiGioco);
