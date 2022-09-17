@@ -1,6 +1,5 @@
 ﻿int[] campoDiGioco = {  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 };
-
-
+int[] winningArray = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 };
 void printCampo(int[] array) {
     int count = 0;
         for (int i = 0; i < campoDiGioco.Length; i++) {
@@ -12,5 +11,39 @@ void printCampo(int[] array) {
             }
         }
 }
+//bool checkWinningArray(int[] playerArray) {
+//    if (playerArray.Equals( winningArray)) return true;
+//    return false;
+//}
+printCampo(campoDiGioco);
 
+void CheckMove(int[] array ,int numero) {
+    int position = Array.IndexOf(array, numero);
+    Console.WriteLine(position);
+    if (  position + 1 < campoDiGioco.Length && array[position + 1] == 0 ) {
+        campoDiGioco[numero ] = numero;
+        campoDiGioco[position] = 0;
+    }
+    else if ((position - 1) > 0 && array[position - 1] == 0 ) {
+        campoDiGioco[position - 1] = numero;
+        campoDiGioco[numero] = 0;
+    }
+    else if (position + 4 < campoDiGioco.Length && array[position + 4] == 0) {
+        campoDiGioco[position + 4] = numero;
+        campoDiGioco[numero] = 0;
+    }
+    else if ( position - 4 > 0 && array[position - 4] == 0)  {
+        campoDiGioco[position - 4 ] = numero;
+        campoDiGioco[numero] = 0;
+    }
+    else {
+         Console.Write("no");
+    }
+}
+
+
+
+    //Console.WriteLine(checkWinningArray(campoDiGioco));
+
+CheckMove(campoDiGioco, 15);
 printCampo(campoDiGioco);
