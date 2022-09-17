@@ -21,20 +21,20 @@ void CheckMove(int[] array ,int numero) {
     int position = Array.IndexOf(array, numero);
     Console.WriteLine(position);
     if (  position + 1 < campoDiGioco.Length && array[position + 1] == 0 ) {
-        campoDiGioco[numero ] = numero;
-        campoDiGioco[position] = 0;
+        campoDiGioco[position ] = 0;
+        campoDiGioco[position + 1] = numero ;
     }
     else if ((position - 1) > 0 && array[position - 1] == 0 ) {
-        campoDiGioco[position - 1] = numero;
-        campoDiGioco[numero] = 0;
+        campoDiGioco[position -1 ] = numero;
+        campoDiGioco[position] = 0;
     }
     else if (position + 4 < campoDiGioco.Length && array[position + 4] == 0) {
         campoDiGioco[position + 4] = numero;
-        campoDiGioco[numero] = 0;
+        campoDiGioco[position] = 0;
     }
     else if ( position - 4 > 0 && array[position - 4] == 0)  {
-        campoDiGioco[position - 4 ] = numero;
-        campoDiGioco[numero] = 0;
+        campoDiGioco[position - 4  ] = numero;
+        campoDiGioco[position] = 0;
     }
     else {
          Console.Write("no");
@@ -46,4 +46,6 @@ void CheckMove(int[] array ,int numero) {
     //Console.WriteLine(checkWinningArray(campoDiGioco));
 
 CheckMove(campoDiGioco, 15);
+printCampo(campoDiGioco);
+CheckMove(campoDiGioco, 11);
 printCampo(campoDiGioco);
